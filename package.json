@@ -1,6 +1,6 @@
 {
   "name": "linr",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Create and refresh terminal line charts from data fetched via HTTP requests.",
   "bin": {
     "linr": "./bin/linr"
