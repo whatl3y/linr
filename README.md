@@ -26,10 +26,10 @@ $ linr http://post-that-does-not-work.net -k value -X POST
 
 ### CLI Parameters
 
-1. url | REQUIRED (*default*) `|-u|--url`: the JSON endpoint where the data you would like to chart
+1. url *(REQUIRED)* `no flag|-u|--url`: the JSON endpoint where the data you would like to chart
 2. method `-X|--request`: the method/verb of the request to the request -- GET, POST, etc. (default GET)
-3. headers `-H|--header`: a (or multiple) headers to add to the requests to get the data (most likely API keys or authentication headers)
-4. query string params `-p|--params`: parameters to pass to the endpoint in the query string (ex. -p key=value)
-5. body params `-b|--body`: parameters to pass to the endpoint in the body for POST requests (ex. -b "{\"key\":\"value\"}")
-6. JSON data key `-k|--key`: a string representing the structure of the returned JSON object
+3. headers `-H|--header`: a (or multiple) headers to add to the requests to get the data (most likely API keys or authentication headers) (default `null`)
+4. query string params `-p|--params`: parameters to pass to the endpoint in the query string (ex. -p key=value) (default `null`)
+5. body params `-b|--body`: parameters to pass to the endpoint in the body for POST requests (ex. -b "{\"key\":\"value\"}") (default `null`)
+6. JSON data key `-k|--key`: a string representing the structure of the returned JSON object. If not provided, linr expects plain text of just a numerical value returned (default `null`, meaning expecting plain text value from endpoint)
 7. delay between requests `-d|--delay`: number of milliseconds to wait between subsequent requests (default 100 milliseconds)
