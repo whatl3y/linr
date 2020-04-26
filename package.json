@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Create and refresh terminal line charts from data fetched via HTTP requests.",
   "bin": {
-    "linr": "./linr"
+    "linr": "./bin/linr"
   },
   "scripts": {
     "build": "gulp build",
