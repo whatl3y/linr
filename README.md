@@ -26,8 +26,8 @@ $ linr http://post-that-does-not-work.net -k value -X POST
 
 ### CLI Parameters
 
-1. url | REQUIRED `*default*|-u|--url`: the JSON endpoint where the data you would like to chart
-2. method | optional `-X|--request`: the method/verb of the request to the request -- GET, POST, etc. (default GET)
+1. url | REQUIRED (*default*) `|-u|--url`: the JSON endpoint where the data you would like to chart
+2. method `-X|--request`: the method/verb of the request to the request -- GET, POST, etc. (default GET)
 3. headers `-H|--header`: a (or multiple) headers to add to the requests to get the data (most likely API keys or authentication headers)
 4. query string params `-p|--params`: parameters to pass to the endpoint in the query string (ex. -p key=value)
 5. body params `-b|--body`: parameters to pass to the endpoint in the body for POST requests (ex. -b "{\"key\":\"value\"}")
