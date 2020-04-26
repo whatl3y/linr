@@ -36,7 +36,14 @@ const Http = require('./libs/http')
     chart.init()
 
     while (true) {
-      const val = await http.getAndParse({ method, body, params }, key)
+      const val = await http.exponentialBackoff(async () => await http.getAndParse({
+        method,
+        body,
+        params
+      }, key), err => {
+        chart.draw(`Error getting data from endpoint -- ${err.stack}`, true)
+      })
+
       chart.push(parseFloat(val))
       chart.draw(`linr - line chart generator (Ctrl+C to exit)\n\n${url}\nlatest value: ${val}`)
       await http.sleep(delay)

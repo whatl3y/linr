@@ -16,11 +16,11 @@ module.exports = function Http({
       params=null,
       body=null
     }) {
-      return await this.exponentialBackoff(async () => await this.client({
+      return await this.client({
         method,
         params,
         body
-      }), () => {})
+      })
     },
 
     async getAndParse(info, keyString=null) {

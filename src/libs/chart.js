@@ -19,7 +19,7 @@ module.exports = function Chart() {
       return this.data = this.data.slice(-100)
     },
 
-    draw(header=null) {
+    draw(header=null, noChart=false) {
       readline.clearLine(process.stdout, 0)
 
       if (header) {
@@ -28,6 +28,9 @@ module.exports = function Chart() {
       }
 
       readline.cursorTo(process.stdout, 0, 6)
+      if (noChart)
+        return
+
       process.stdout.write(asciichart.plot(this.data, {
         height: Math.floor(process.stdout.rows - (process.stdout.rows * 0.20))
       }))
