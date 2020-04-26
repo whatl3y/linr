@@ -5,13 +5,18 @@ const Http = require('./libs/http')
 ;(async function linr() {
   try {
     const argv = minimist(process.argv.slice(2))
-    const url     = argv._[0] || argv.url || argv.u || `https://api.coinbase.com/v2/prices/BTC-USD/buy`
+    const url     = argv._[0] || argv.url || argv.u
     const method  = argv.request || argv.X || 'GET'
     const curlH   = argv.header || argv.H
     const query   = argv.p || argv.params
     const data    = argv.b || argv.body
-    const key     = argv.key || argv.k || ''
+    const key     = argv.key || argv.k
     const delay   = argv.delay || argv.d || 100
+
+    if (!url) {
+      console.error(`Please provide a URL (-u|--url) to fetch data to chart.`)
+      process.exit()
+    }
 
     let headers = {}
     if (curlH)

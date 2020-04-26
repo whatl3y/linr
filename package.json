@@ -29,6 +29,7 @@
   "dependencies": {
     "asciichart": "^1.5.17",
     "axios": "^0.19.2",
+    "core-js": "^3.6.5",
     "minimist": "^1.2.5"
   },
   "devDependencies": {
@@ -36,7 +37,6 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
     "babel-loader": "^8.1.0",
-    "core-js": "^3.6.5",
     "gulp": "^4.0.2",
     "gulp-insert": "^0.5.0",
     "gulp-plumber": "^1.2.1",
