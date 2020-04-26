@@ -24,12 +24,12 @@ $ linr https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount -d 1000
 $ linr http://post-that-does-not-work.net -k value -X POST
 ```
 
-### Parameters
+### CLI Parameters
 
-1. url ([NO PARAM]|-u|--url) &lt;REQUIRED&gt;: the JSON endpoint where the data you would like to chart
-2. method (-X|--request) &lt;optional&gt;: the method/verb of the request to the request -- GET, POST, etc. (default GET)
-3. headers (-H|--header) &lt;optional&gt;: a (or multiple) headers to add to the requests to get the data (most likely API keys or authentication headers)
-4. query string params (-p|--params) &lt;optional&gt;: parameters to pass to the endpoint in the query string (ex. -p key=value)
-5. body params (-b|--body) &lt;optional&gt;: parameters to pass to the endpoint in the body for POST requests (ex. -b "{\"key\":\"value\"}")
-6. JSON data key (-k|--key) &lt;optional&gt;: a string representing the structure of the returned JSON object
-7. delay between requests (-d|--delay) &lt;optional&gt;: number of millisecodns to wait between subsequent requests (default 100 milliseconds)
+1. url | REQUIRED `*default*|-u|--url`: the JSON endpoint where the data you would like to chart
+2. method | optional `-X|--request`: the method/verb of the request to the request -- GET, POST, etc. (default GET)
+3. headers `-H|--header`: a (or multiple) headers to add to the requests to get the data (most likely API keys or authentication headers)
+4. query string params `-p|--params`: parameters to pass to the endpoint in the query string (ex. -p key=value)
+5. body params `-b|--body`: parameters to pass to the endpoint in the body for POST requests (ex. -b "{\"key\":\"value\"}")
+6. JSON data key `-k|--key`: a string representing the structure of the returned JSON object
+7. delay between requests `-d|--delay`: number of milliseconds to wait between subsequent requests (default 100 milliseconds)
