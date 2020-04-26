@@ -4,7 +4,7 @@ Create and refresh a terminal line chart from data fetched via HTTP request. As 
 
 NOTE: linr continues to make HTTP requests to the endpoint specified in the `url` argument until you decide to stop (Ctrl+C). We use exponential backoff in the event that the endpoint is rate limiting, but if it's an API that has quotas per IP address or authenticated via an API key, this utility will go against those quotas.
 
-![Coinbase BTC-USD](https://user-images.githubusercontent.com/13718950/80319524-a93c1d00-87de-11ea-96ab-aa93a51f1543.png)
+![Coinbase BTC-USD](https://user-images.githubusercontent.com/13718950/80319524-a93c1d00-87de-11ea-96ab-aa93a51f1543.png | width=100)
 
 ## Install
 
