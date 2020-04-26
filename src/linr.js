@@ -1,6 +1,6 @@
 const minimist = require('minimist')
-const Chart = require('./chart')
-const Http = require('./http')
+const Chart = require('./libs/chart')
+const Http = require('./libs/http')
 
 ;(async function linr() {
   try {
@@ -9,6 +9,7 @@ const Http = require('./http')
     const method  = argv.request || argv.X || 'GET'
     const curlH   = argv.header || argv.H
     const query   = argv.p || argv.params
+    const data    = argv.b || argv.body
     const key     = argv.key || argv.k || ''
     const delay   = argv.delay || argv.d || 100
 
@@ -16,9 +17,13 @@ const Http = require('./http')
     if (curlH)
       headers = stringToObj(curlH, ':')
 
-    let params = {}
+    let params = null
     if (query)
       params = stringToObj(query, '=')
+
+    let body = null
+    if (data)
+      body = JSON.parse(data)
 
     const chart = Chart()
     const http = Http({ url, headers })
@@ -26,7 +31,7 @@ const Http = require('./http')
     chart.init()
 
     while (true) {
-      const val = await http.getAndParse({ method, params }, key)
+      const val = await http.getAndParse({ method, body, params }, key)
       chart.push(parseFloat(val))
       chart.draw(`linr - line chart generator (Ctrl+C to exit)\n\n${url}\nlatest value: ${val}`)
       await http.sleep(delay)

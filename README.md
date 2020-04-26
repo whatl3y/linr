@@ -4,7 +4,7 @@ Create and refresh a terminal line chart from data fetched via HTTP request. As 
 
 NOTE: linr continues to make HTTP requests to the endpoint specified in the `url` argument until you decide to stop (Ctrl+C). We use exponential backoff in the event that the endpoint is rate limiting, but if it's an API that has quotas per IP address or authenticated via an API key, this utility will go against those quotas.
 
-<img src="https://user-images.githubusercontent.com/13718950/80319524-a93c1d00-87de-11ea-96ab-aa93a51f1543.png" width="100">
+<img src="https://user-images.githubusercontent.com/13718950/80319524-a93c1d00-87de-11ea-96ab-aa93a51f1543.png" width="500">
 
 ## Install
 
@@ -21,13 +21,15 @@ $ linr https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount -H "x-my-he
 $ linr https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount -H "x-my-header: the_value" -H "Another: header"
 $ linr https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount -d 1000
 $ linr https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount -d 1000
-$ linr http://an-endpoint-that-does-not-work.net -k value -X POST
+$ linr http://post-that-does-not-work.net -k value -X POST
 ```
 
 ### Parameters
 
-1. url ([NO PARAM]|-u|--url) <REQUIRED>: the JSON endpoint where the data you would like to chart
-2. method (-X|--request) <optional>: the method/verb of the request to the request -- GET, POST, etc. (default GET)
-3. headers (-H|--header) <optional>: a (or multiple) headers to add to the requests to get the data (most likely API keys or authentication headers)
-4. JSON data key (-k|--key) <optional>: a string representing the structure of the returned JSON object
-5. delay between requests (-d|--delay) <optional>: number of millisecodns to wait between subsequent requests (default 100 milliseconds)
+1. url ([NO PARAM]|-u|--url) &lt;REQUIRED&gt;: the JSON endpoint where the data you would like to chart
+2. method (-X|--request) &lt;optional&gt;: the method/verb of the request to the request -- GET, POST, etc. (default GET)
+3. headers (-H|--header) &lt;optional&gt;: a (or multiple) headers to add to the requests to get the data (most likely API keys or authentication headers)
+4. query string params (-p|--params) &lt;optional&gt;: parameters to pass to the endpoint in the query string (ex. -p key=value)
+5. body params (-b|--body) &lt;optional&gt;: parameters to pass to the endpoint in the body for POST requests (ex. -b "{\"key\":\"value\"}")
+6. JSON data key (-k|--key) &lt;optional&gt;: a string representing the structure of the returned JSON object
+7. delay between requests (-d|--delay) &lt;optional&gt;: number of millisecodns to wait between subsequent requests (default 100 milliseconds)
