@@ -1,0 +1,48 @@
+{
+  "name": "linr",
+  "version": "0.0.1",
+  "description": "Create and refresh terminal line charts from data fetched via HTTP requests.",
+  "bin": {
+    "linr": "./linr"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "test": "mocha --exit --recursive './**/*.spec.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatl3y/linr.git"
+  },
+  "keywords": [
+    "line",
+    "chart",
+    "graph",
+    "terminal",
+    "shell"
+  ],
+  "author": "Lance Whatley <whatl3y@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whatl3y/linr/issues"
+  },
+  "homepage": "https://github.com/whatl3y/linr#readme",
+  "dependencies": {
+    "asciichart": "^1.5.17",
+    "axios": "^0.19.2",
+    "minimist": "^1.2.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babel-loader": "^8.1.0",
+    "core-js": "^3.6.5",
+    "gulp": "^4.0.2",
+    "gulp-insert": "^0.5.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-uglify-es": "^2.0.0",
+    "regenerator-runtime": "^0.13.5",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-stream": "^5.2.1"
+  }
+}
