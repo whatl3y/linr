@@ -1,12 +1,12 @@
 # linr
 
-Create real-time terminal line charts from HTTP data using . As of today this utility requires the HTTP endpoint either returns a plain numerical value or a JSON object with the desired value nested in it. For JSON responses, see the **`JSON data key`** parameter and [Usage/Examples](#usageexamples) below.
+Create real-time terminal line charts from HTTP data. As of today this utility requires the URL/endpoint returns either a plain numerical value or a JSON object with the desired value nested in it. For JSON responses, see the **`JSON data key`** parameter and [Usage/Examples](#usageexamples) below.
 
 NOTE: linr continues to make HTTP requests to the endpoint specified in the **`url`** argument until you decide to stop (Ctrl+C). We use exponential backoff in the event that the endpoint is rate limiting, but if it's an API that has quotas per IP address or authenticated via an API key, this utility will go against those quotas.
 
 `$ linr https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount`
 
-<img src="https://user-images.githubusercontent.com/13718950/80319524-a93c1d00-87de-11ea-96ab-aa93a51f1543.png" width="400">
+<img src="https://user-images.githubusercontent.com/13718950/80319524-a93c1d00-87de-11ea-96ab-aa93a51f1543.png" width="300">
 
 ## Install
 
