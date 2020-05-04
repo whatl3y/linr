@@ -1,6 +1,6 @@
 {
   "name": "linr",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Real-time terminal line charts from HTTP request data.",
   "bin": {
     "linr": "./bin/linr"
