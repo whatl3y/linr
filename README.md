@@ -1,6 +1,6 @@
 # linr
 
-Create and refresh a terminal line chart from data fetched via HTTP request. As of today this utility requires that the HTTP endpoint either returns a plain text numerical value only or a JSON object with the value nested inside the JSON. For JSON responses, see the **`JSON data key`** parameter.
+Create real-time terminal line charts from HTTP data using . As of today this utility requires the HTTP endpoint either returns a plain numerical value or a JSON object with the desired value nested in it. For JSON responses, see the **`JSON data key`** parameter and [Usage/Examples](#usageexamples) below.
 
 NOTE: linr continues to make HTTP requests to the endpoint specified in the **`url`** argument until you decide to stop (Ctrl+C). We use exponential backoff in the event that the endpoint is rate limiting, but if it's an API that has quotas per IP address or authenticated via an API key, this utility will go against those quotas.
 
@@ -24,6 +24,9 @@ $ linr https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount
 # -u flag is optional, no flag defaults to URL
 $ linr -u https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount
 
+# response data with array: {"data":[{value: 1}, {value: 2}, {value: 3}]}
+$ linr https://array-endpoint.com/data -k data.1.value # will use the value `2` from the data above
+
 # single header added to requests (cURL compatible)
 $ linr https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount -H "x-my-header: the_value"
 
@@ -37,7 +40,7 @@ $ linr https://api.coinbase.com/v2/prices/BTC-USD/buy -k data.amount -d 1000
 $ linr http://post-that-does-not-work.net -k value -X POST -b "{\\"key\\":\\"value\\"}"
 ```
 
-### CLI Parameters
+## CLI Parameters
 
 1. `-u|--url|no flag` **url** *REQUIRED*: the HTTP endpoint with the data you would like to chart
 2. `-X|--request` **method**: the method/verb of the request (same format as cURL) -- GET, POST, etc. (default GET)
@@ -46,3 +49,7 @@ $ linr http://post-that-does-not-work.net -k value -X POST -b "{\\"key\\":\\"val
 5. `-b|--body` **body params**: parameters to pass to the endpoint in the body for POST requests (ex. -b "{\\"key\\":\\"value\\"}") (default `null`)
 6. `-k|--key` **JSON data key**: a string representing the structure of the returned JSON object. If not provided, linr expects plain text of just a numerical value returned (default `null`, meaning expecting plain text value from endpoint)
 7. `-d|--delay` **delay between requests**: number of milliseconds to wait between subsequent requests (default 100 milliseconds)
+
+## Special Thanks
+
+The charts are ASCII charts built using [asciichart](https://github.com/kroitor/asciichart). Thanks to the author/contributors for building such a cool and easy to use, free (MIT License) tool!
