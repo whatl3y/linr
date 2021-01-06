@@ -28,7 +28,7 @@
   "homepage": "https://github.com/whatl3y/linr#readme",
   "dependencies": {
     "asciichart": "^1.5.17",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "minimist": "^1.2.5",
     "regenerator-runtime": "^0.13.5"
